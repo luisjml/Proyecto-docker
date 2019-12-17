@@ -11,9 +11,9 @@ services:
   app:
     image: spring-boot-docker.jar
     ports:
-      - 8080:8080
+      - 8500:8500
     links:
       - mongodb
     expose:
-      - 8080
+      - 8500
     command: mvn clean spring-boot:run

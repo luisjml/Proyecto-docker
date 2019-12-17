@@ -2,9 +2,7 @@ package com.proyectod.proyectoDocker.controllers;
 
 import com.proyectod.proyectoDocker.entities.User;
 import com.proyectod.proyectoDocker.repositories.UserRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,5 +21,21 @@ public class UserController {
 
         return users;
     }
+
+    @PutMapping
+    public void insert(@RequestBody User user){
+        this.userRepository.insert(user);
+    }
+
+    @PostMapping
+    public void update(@RequestBody User user){
+        this.userRepository.save(user);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable("id") String id){
+        this.userRepository.deleteById(id);
+    }
+
 
 }
